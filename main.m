@@ -1,5 +1,13 @@
 function main
-    output = ruk4(0, 0.005, 10000, [3; 0.1], @dampedPendulum);
+
+    %Input parameters
+    tZero = 0;
+    timeStep = 0.005;
+    iterations = 10000;
+    xZero = [3; 0.1];
+    fx = @dampedPendulum;
+    
+    output = rk4(tZero, timeStep, iterations, xZero, fx);
     
     figure('Name', 'x1 and x2');
     plot(output(1,:));
